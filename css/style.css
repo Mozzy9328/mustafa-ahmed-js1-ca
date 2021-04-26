@@ -1,0 +1,17 @@
+body {
+	background-color: rgb(209, 202, 245);
+}
+
+.currency {
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(110, 106, 108, 0.7);
+	max-width: 50%;
+	margin: 5%;
+	justify-content: center;
+}
+
+.errormessage {
+	border: 4px solid rgb(116, 112, 112);
+	background-color: rgba(211, 30, 30, 0.8);
+}

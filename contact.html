@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="details.html">About Us</a></li>
+				</ul>
+			</nav>
+			<div>
+				<h1>Contact Us Today</h1>
+			</div>
+		</header>
+		<main>
+			<h2>Fill out this form</h2>
+			<form>
+				<div>
+					<label
+						>Name (required):
+						<input name="name" id="name" />
+					</label>
+					<div class="formError">Please enter a correct Name</div>
+				</div>
+				<div>
+					<label
+						>Subject:
+						<input name="Subject" id="subject" />
+					</label>
+					<div class="formError">
+						Must have a value with a minimum length of 10
+					</div>
+				</div>
+				<div>
+					<label>
+						Email
+						<input type="email" name="email" id="email" />
+					</label>
+					<div class="formError">
+						Must have a value and be formatted like an email address:
+					</div>
+				</div>
+				<div>
+					<label>
+						Address:
+						<input name="address" id="address" />
+					</label>
+					<div class="formError">
+						Must have a value with a minimum length of 25
+					</div>
+				</div>
+			</form>
+		</main>
+	</body>
+</html>
