@@ -1,18 +1,9 @@
 
-
-const queryString = document.location.search;
-
-const params = new URLSearchParams(queryString)
-
-const id = params.get("id")
-
-console.log(id)
-
-const url ="https://api.coinbase.com/v2/currencies/";
+const url ="https://api.coinbase.com/v2/currencies";
 
 const main = document.querySelector("main")
 
-async function retriveFunctionAPI(){
+async function retriveFunctionAPIs(){
     try{
     const response = await fetch(url)
 
@@ -31,7 +22,7 @@ async function retriveFunctionAPI(){
 
             <p style="font-weight:bold">Code Name:
 
-                <a href="details.html">${data[i].id}</a>
+                <a href="details.html?id=${data[i].id}">${data[i].id}</a>
 
             </p>
 
@@ -42,7 +33,7 @@ async function retriveFunctionAPI(){
             </div>`
         }
     }
-}
+    }
 catch(error){
     main.innerHTML += 
     `<div class="errormessage">
@@ -53,4 +44,4 @@ catch(error){
     </div>`
 }}
 
-retriveFunctionAPI()
+retriveFunctionAPIs()
