@@ -1,7 +1,11 @@
+
+
 // Selector for the HTML
 const main = document.querySelector("main")
 
 const theIdClass = document.querySelector(".id-number")
+
+
 
 // QueryString and ID
 const queryString = document.location.search;
@@ -12,26 +16,24 @@ const id = params.get("id")
 
 console.log(id)
 
-
-const url ="https://api.coinbase.com/v2/currencies/" + id ;
-
-
+const url ="https://api.coinbase.com/v2/currencies/" + id
 
 
 // Function
 async function retriveFunctionAPI(){
-    
     try{
-    const response = await fetch(url);
+
+    const response = await fetch(url)
+
     const json = await response.json()
-    const data = json.errors
-    console.log(data)
+
+    console.log(json)
 
     createHTML(json);
 
     }
     catch(error){
-    main.innerHTML += 
+    theIdClass.innerHTML += 
     `<div class="errormessage">
 
     <p style="font-weight:bold">An error has occured:</p>
@@ -43,9 +45,9 @@ async function retriveFunctionAPI(){
 retriveFunctionAPI()
 
 function createHTML(json){
-    theIdClass.innerHTML += `
+    main.innerHTML += `
     <div>
-    <h1> ${json.name} <h1>
+    <h1>${json.name}</h1>
     </div>  
     <div>
 

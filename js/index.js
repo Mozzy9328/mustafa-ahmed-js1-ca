@@ -19,18 +19,18 @@ async function retriveFunctionAPIs(){
         if(i <= 15){
             main.innerHTML += 
             `<div class ="currency">
+            <p style="font-weight:bold">Code Name:</p>
+            
+            <a href="details.html?id=${data[i].id}">
+            ${data[i].id} </a>
 
-            <p style="font-weight:bold">Code Name:
-
-                <a href="details.html?id=${data[i].id}">${data[i].id}</a>
-
-            </p>
+       
 
             <p> Name: ${data[i].name}</p>
 
             <p>Value: ${data[i].min_size}</p>
-            
             </div>`
+            
         }
     }
     }
