@@ -12,48 +12,52 @@ const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString)
 
-const id = params.get("id")
+const country = params.get("country")
 
-console.log(id)
+console.log(country)
 
-const url ="https://api.coinbase.com/v2/currencies/" + id
+const url ="https://covid-193.p.rapidapi.com/statistics?country=" + country;
 
 
-// Function
+
+//Function
 async function retriveFunctionAPI(){
     try{
+        const response = await fetch(url, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "7eb59e8046msh9d108d1fd9d093dp1823e6jsn20f10be6b624",
+                "x-rapidapi-host": "covid-193.p.rapidapi.com"
+            }
+        })
+        .then(response => response.json())
 
-    const response = await fetch(url)
+        const data = response.response
 
-    const json = await response.json()
+        console.log(data);
 
-    console.log(json)
-
-    createHTML(json);
-
+            main.innerHTML += `
+            <div>
+            <h1>${data.country}</h1>
+            </div>  
+            <div>
+        
+            <p>The Code number: ${data.population}</p>
+            <p>The value of this currency: ${data.cases}</p>
+        
+            </div>`
+        
     }
     catch(error){
     theIdClass.innerHTML += 
     `<div class="errormessage">
 
     <p style="font-weight:bold">An error has occured:</p>
-    <p>${error} </p>
+    <p>${error}</p>
 
     </div>`
 }}
-
 retriveFunctionAPI()
 
-function createHTML(json){
-    main.innerHTML += `
-    <div>
-    <h1>${json.name}</h1>
-    </div>  
-    <div>
 
-    <p>The Code number: ${json.id}</p>
-    <p>The value of this currency: ${json.min_size}</p>
-
-    </div>`
-}
 
