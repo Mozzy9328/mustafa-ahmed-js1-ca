@@ -2,14 +2,19 @@ body {
 	background-color: rgb(209, 202, 245);
 }
 
-.currency {
+.the-information {
 	display: flex;
-	flex-direction: column;
-	background-color: rgba(110, 106, 108, 0.7);
-	max-width: 50%;
+	flex-direction: row;
+	flex-wrap: wrap;
+	max-width: 85%;
 	margin: 5%;
-	justify-content: center;
+	justify-content: space-between;
+}
+
+a {
+	background-color: rgba(110, 106, 108, 0.7);
 	text-decoration: none;
+	margin: 5%;
 	color: rgb(14, 14, 14);
 }
 

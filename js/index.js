@@ -1,6 +1,6 @@
-const main = document.querySelector("main")
+const theInfo = document.querySelector(".the-information")
 
-const option = document.querySelector("select")
+const option = document.querySelector("#countries")
 
 const url ="https://covid-193.p.rapidapi.com/statistics";
 
@@ -18,15 +18,15 @@ async function retriveFunctionAPIs(){
 
     const data = response.response
     console.log(data);
+    theInfo.innerHTML = "";
+    option.innerHTML += "";
 
-
-    main.innerHTML, option.innerHTML = "";
 
     for(let i = 0; i < data.length;i++){
         // if(i <= 15){
 
-            main.innerHTML += 
-            `<a href="details.html?country=${data[i].country}" class ="currency">
+            theInfo.innerHTML += 
+            `<a href="details.html?country=${data[i].country}">
             
             <p style="font-weight: bold">Country:</p>
             <p> ${data[i].country} </p>
@@ -36,14 +36,17 @@ async function retriveFunctionAPIs(){
 
             <p style="font-weight: bold">Active COVID cases:</p>
             <p>${data[i].cases.active}</p>
-            </a>`
-            
-            countries(data)
 
-        // }
-    }}
+            </a>`
+        
+            option.innerHTML +=
+                `
+                <option value="${data[i].country}">${data[i].country}</option>`
+            }
+        }
+    
 catch(error){
-    main.innerHTML += 
+    theInfo.innerHTML += 
     `<div class="errormessage">
 
     <p style="font-weight:bold">An error has occured:</p>
@@ -55,10 +58,3 @@ catch(error){
 retriveFunctionAPIs()
 
 
-function countries(data){
-for(let i = 0; i < data.length; i++){
-option.innerHTML += `
-<select>
-<option>${data[i].country}</option>
-</select>`
-}}
