@@ -3,6 +3,8 @@
 // Selector for the HTML
 const main = document.querySelector("main")
 
+const head = document.querySelector("head title")
+
 const theIdClass = document.querySelector(".id-number")
 
 
@@ -36,16 +38,7 @@ async function retriveFunctionAPI(){
 
         console.log(data);
 
-            main.innerHTML += `
-            <div>
-            <h1>${data.country}</h1>
-            </div>  
-            <div>
-        
-            <p>The Code number: ${data.population}</p>
-            <p>The value of this currency: ${data.cases}</p>
-        
-            </div>`
+        createHtml(data);
         
     }
     catch(error){
@@ -60,4 +53,19 @@ async function retriveFunctionAPI(){
 retriveFunctionAPI()
 
 
+function createHtml(data){
+    for(let i = 0; i < data.length; i++){
+        main.innerHTML += `
+        <div>
+        <h1>Continent: ${data[i].continent}</h1>
+        <h2>Country: ${data[i].country}</h2>
+        </div>  
+        <div>
+    
+        <p>Population: ${data[i].population}</p>
+        <p>Number of Active Cases: ${data[i].cases.active}</p>
+    
+        </div>`
 
+        head.innerHTML = `${data[i].country}`
+}}
