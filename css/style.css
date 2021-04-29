@@ -1,5 +1,18 @@
+* {
+	padding: 0%;
+	margin: 0%;
+}
+
 body {
 	background-color: rgb(209, 202, 245);
+}
+header {
+	display: flex;
+	flex-direction: column;
+}
+li {
+	list-style-type: none;
+	text-align: center;
 }
 
 .the-information {
@@ -11,8 +24,19 @@ body {
 	justify-content: space-between;
 }
 
-a {
+#box-color {
 	background-color: rgba(110, 106, 108, 0.7);
+	padding: 5%;
+	border-radius: 100px;
+}
+
+#align-center {
+	margin: 2% auto;
+	align-items: center;
+	text-align: center;
+}
+
+a {
 	text-decoration: none;
 	margin: 5%;
 	color: rgb(14, 14, 14);
@@ -26,4 +50,12 @@ a {
 .index-image {
 	width: 500px;
 	height: auto;
+}
+
+.detail-information {
+	display: flex;
+	flex-direction: column;
+	margin: 5%;
+	align-items: center;
+	text-align: center;
 }

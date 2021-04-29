@@ -1,7 +1,9 @@
 
 
 // Selector for the HTML
-const main = document.querySelector("main")
+const main = document.querySelector(".detail-information")
+
+const header = document.querySelector("header")
 
 const head = document.querySelector("head title")
 
@@ -55,13 +57,12 @@ retriveFunctionAPI()
 
 function createHtml(data){
     for(let i = 0; i < data.length; i++){
-        main.innerHTML += `
+        
+        header.innerHTML += `<h2 id="align-center">Country: ${data[i].country}</h2>`
+        
+        main.innerHTML += ` 
         <div>
-        <h1>Continent: ${data[i].continent}</h1>
-        <h2>Country: ${data[i].country}</h2>
-        </div>  
-        <div>
-    
+        <p>Continent: ${data[i].continent}</p>
         <p>Population: ${data[i].population}</p>
         <p>Number of Active Cases: ${data[i].cases.active}</p>
     
