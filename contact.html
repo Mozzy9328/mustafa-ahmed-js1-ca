@@ -21,20 +21,20 @@
 		</header>
 		<main>
 			<h2>Fill out this form</h2>
-			<form>
+			<form action="details.html" method="POST" class="flex-box">
 				<div>
 					<label
-						>Name (required):
-						<input name="name" id="name" />
+						>Name*:
+						<input name="name" id="name" required />
 					</label>
-					<div class="formError">Please enter a correct Name</div>
+					<div class="form-error">Please enter a correct Name</div>
 				</div>
 				<div>
 					<label
 						>Subject:
-						<input name="Subject" id="subject" />
+						<input name="subject" id="subject" />
 					</label>
-					<div class="formError">
+					<div class="form-error">
 						Must have a value with a minimum length of 10
 					</div>
 				</div>
@@ -43,7 +43,7 @@
 						Email
 						<input type="email" name="email" id="email" />
 					</label>
-					<div class="formError">
+					<div class="form-error">
 						Must have a value and be formatted like an email address:
 					</div>
 				</div>
@@ -52,11 +52,16 @@
 						Address:
 						<input name="address" id="address" />
 					</label>
-					<div class="formError">
+					<div class="form-error">
 						Must have a value with a minimum length of 25
+					</div>
+					<div>
+						<input type="submit" value="Send" id="submit" />
+						<div class="form-error">You missed something!</div>
 					</div>
 				</div>
 			</form>
 		</main>
+		<script src="js/contact.js"></script>
 	</body>
 </html>

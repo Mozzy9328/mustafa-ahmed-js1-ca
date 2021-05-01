@@ -6,6 +6,12 @@
 body {
 	background-color: rgb(209, 202, 245);
 }
+h1,
+h2 {
+	text-align: center;
+	margin: 5%;
+}
+
 header {
 	display: flex;
 	flex-direction: column;
@@ -52,10 +58,47 @@ a {
 	height: auto;
 }
 
+/* Details html */
+
 .detail-information {
 	display: flex;
 	flex-direction: column;
 	margin: 5%;
 	align-items: center;
+}
+
+/* Contact-form */
+
+.flex-box {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	margin: 10% auto;
+	padding: 5%;
+	background-color: rgba(110, 106, 108, 0.7);
+	max-width: 50%;
+	border-radius: 100px;
+}
+
+#name,
+#subject,
+#email,
+#address,
+#submit {
+	display: block;
+	margin: 4% auto;
+	padding: 2%;
+	width: 70%;
+}
+
+label {
+	font-size: 20px;
+}
+
+.form-error {
+	display: none;
+	width: 50%;
+	margin: 2% auto;
 	text-align: center;
+	color: rgba(109, 6, 6, 0.8);
 }
