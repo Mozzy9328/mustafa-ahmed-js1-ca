@@ -1,6 +1,6 @@
 const theInfo = document.querySelector(".the-information")
 
-const option = document.querySelector("#countries")
+const option = document.querySelector("#continent")
 
 const url ="https://covid-193.p.rapidapi.com/statistics";
 
@@ -21,16 +21,17 @@ async function retriveFunctionAPIs(){
     console.log(data);
 
     theInfo.innerHTML = "";
-    option.innerHTML = "";
-
 
     for(let i = 0; i < data.length; i++){
-        if(i < 15){
+        if(data[i].continent === option.value){
             theInfo.innerHTML += 
             `<a href="details.html?country=${data[i].country}" id="box-color">
 
             <p style="font-weight: bold">Country:</p>
             <p> ${data[i].country} </p>
+
+            <p style="font-weight: bold">Continent:</p>
+            <p> ${data[i].continent} </p>
 
             <p style="font-weight: bold"> Population:</p>
             <p> ${data[i].population}</p>
@@ -38,9 +39,9 @@ async function retriveFunctionAPIs(){
             <p style="font-weight: bold">Active COVID cases:</p>
             <p>${data[i].cases.active}</p>
 
-            </a>`}
+            </a>`
 
-            option.innerHTML += `<option>${data[i].country}</option>`}
+    }}
             } 
 catch(error){
     theInfo.innerHTML += 
@@ -52,12 +53,18 @@ catch(error){
     </div>`
 }}
 
-retriveFunctionAPIs()
+option.addEventListener("change", retriveFunctionAPIs)
 
 
 
 
-            // function changeCountry(option){
-                
-            //     const action = this.value
-            //     console.log(action)}
+
+
+//  function optionOnChange(){
+
+// }
+
+// const selectedValue = option.target;
+// console.log(selectedValue)
+
+// for(let i = 1; i <= selectedValue; i++) {
