@@ -1,11 +1,15 @@
 const theInfo = document.querySelector(".the-information")
 
 const option = document.querySelector("#continent")
+const loading = document.querySelector("#loading")
+
 
 const url ="https://covid-193.p.rapidapi.com/statistics";
 
 
+
 async function retriveFunctionAPIs(){
+
     try{
     const response = await fetch(url, {
 	"method": "GET",
@@ -19,9 +23,8 @@ async function retriveFunctionAPIs(){
 
     const data = response.response
     console.log(data);
-
+ 
     theInfo.innerHTML = "";
-
     for(let i = 0; i < data.length; i++){
         if(data[i].continent === option.value){
             theInfo.innerHTML += 
@@ -42,7 +45,8 @@ async function retriveFunctionAPIs(){
             </a>`
 
     }}
-            } 
+            }
+
 catch(error){
     theInfo.innerHTML += 
     `<div class="errormessage">
@@ -50,21 +54,9 @@ catch(error){
     <p style="font-weight:bold">An error has occured:</p>
     <p>${error} </p>
 
-    </div>`
-}}
+    </div>`}
 
-option.addEventListener("change", retriveFunctionAPIs)
-
-
+}
+    option.addEventListener("change", retriveFunctionAPIs); 
 
 
-
-
-//  function optionOnChange(){
-
-// }
-
-// const selectedValue = option.target;
-// console.log(selectedValue)
-
-// for(let i = 1; i <= selectedValue; i++) {
